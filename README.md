@@ -1,5 +1,5 @@
 # LLVM Compiler Project 2023
-Hi! This is MAS-Lang! A useless but tricky language and we have designed a compiler for it in C++ !
+Hi! This is MAS-Lang! A useless but tricky language and we have designed a compiler for it in C++!
 
 This language supports:
 
@@ -57,7 +57,7 @@ end
 ```
 
 ## How to use?
-**1-** Install llvm compiler on your computer (for step by step installation: **https://vrgl.ir/t9N3n** )
+**1-** Install LLVM compiler on your computer (for step-by-step installation: [Persian](https://vrgl.ir/t9N3n))
 
 **2-** Run the makeBuild.sh by ``` ./makebuild.sh ``` or the below commands:
 ```
