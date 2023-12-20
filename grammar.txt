@@ -1,0 +1,55 @@
+S -> Define S | Assign S | If S | Loop S | Define | Assign | If | Loop
+
+Define -> "int" Variables ";" |
+	  "int" Variables "=" Values ";"
+
+
+Variables -> Id "," Variables | Id
+
+AssignOp -> "+=" | "-=" | "*=" | "/=" | "%=" | "="
+
+Values -> Expr "," Values | Expr
+
+Expr -> Expr "+" Term |
+        Expr "-" Term | Term
+
+Term -> Term "*" Power |
+        Term "%" Power |
+        Term "/" Power | Power
+
+Power -> Power "^" Factor | Factor
+
+Factor -> Id | Number | "(" Expr ")" 
+
+Assign ->  Variables AssignOp Values ";"
+
+If -> "if" Condition ":" "begin" Statement "end" Elif Else |
+      "if" Condition ":" "begin" Statement "end" Else |
+      "if" Condition ":" "begin" Statement "end" Elif |
+      "if" Condition ":" "begin" Statement "end" |
+      "if" Condition ":" "begin" "end" Elif Else |
+      "if" Condition ":" "begin" "end" Else |
+      "if" Condition ":" "begin" "end" Elif |
+      "if" Condition ":" "begin" "end"
+
+Elif -> "elif" Condition ":" "begin" Statement "end" Elif |
+		"elif" Condition ":" "begin" Statement "end" |
+		"elif" Condition ":" "begin" "end" Elif | 
+		"elif" Condition ":" "begin" "end"
+
+Else -> "else" ":" "begin" Statement "end" |
+		"else" ":" "begin" "end" 
+
+
+Statement -> Assign Statement | If Statement | Loop Statement | Assign | If | Loop
+
+Condition -> Condition "and" SubCondition | 
+	     Condition "or" SubCondition |  SubCondition
+
+SubCondition -> "True" | "False" | Expr | Expr Relational Expr |
+					  "(" Condition ")" 
+
+Relational -> ">" | "<" | ">=" | "<=" | "==" | "!="
+
+Loop -> "loopc " Condition ":" "begin" Statement "end"
+	
